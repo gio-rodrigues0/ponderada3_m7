@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Spending Score</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='styles.css')}}">
+</head>
+<body>
+    <h1>Calculadora de Spending Score</h1>
+    <form id="spending-score-form" action="/predict" method="POST">
+        <label for="age">Idade:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="annual_income">Ganho Anual (em milhares de dólares):</label>
+        <input type="number" id="annual_income" name="annual_income" required><br><br>
+
+        <label for="gender">Gênero:</label>
+        <select id="gender" name="gender" required>
+            <option value="0">Masculino</option>
+            <option value="1">Feminino</option>
+        </select><br><br>
+
+        <button type="submit">Calcular Spending Score</button>
+    </form>
+
+    {% if prediction %}
+    <div id="result">
+        <h2>Spending Score:</h2>
+        <p id="spending_score_result">{{ prediction }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>

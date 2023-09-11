@@ -1,0 +1,7 @@
+notebook
+Lib
+Include
+Scripts
+pyvenv.cfg
+__pycache__
+README.md
